@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actionCreators from './store/actionCreators';
 
+@connect(state => ({moneyCouter: state.moneyCouter}), actionCreators)
+
 class MoneyCounter extends Component {
 	render() {
 		const { moneyCouter: { moneyNum }, add, sub, addAsync } = this.props;
@@ -18,8 +20,4 @@ class MoneyCounter extends Component {
 	}
 }
 
-const mapStateToProps = state => ({
-	moneyCouter: state.moneyCouter
-});
-
-export default connect(mapStateToProps, actionCreators)(MoneyCounter);
+export default MoneyCounter;

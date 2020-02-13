@@ -14,7 +14,7 @@ class MoneyCounter extends Component {
 		});
 	}
 	componentWillUnmount() {
-		this.unsubscribe(this.unsubscribe);
+		store.unsubscribe(this.unsubscribe);
 	}
 	render() {
 		const { moneyNum } = this.state;

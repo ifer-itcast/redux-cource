@@ -7,9 +7,12 @@ const { add, sub } = bindActionCreators(actionCreators, store.dispatch);
 class AgeCounter extends Component {
 	state = store.getState().ageCounter;
 	componentDidMount() {
-		store.subscribe(() => {
+		this.unsubscribe = store.subscribe(() => {
 			this.setState(store.getState().ageCounter);
 		});
+	}
+	componentWillUnmount() {
+		store.unsubscribe(this.unsubscribe);
 	}
 	render() {
 		const { ageNum } = this.state;

@@ -8397,7 +8397,7 @@ redent@^3.0.0:
 
 redux-thunk@^2.3.0:
   version "2.3.0"
-  resolved "https://registry.npm.taobao.org/redux-thunk/download/redux-thunk-2.3.0.tgz?cache=0&sync_timestamp=1573615470050&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fredux-thunk%2Fdownload%2Fredux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
+  resolved "https://registry.npm.taobao.org/redux-thunk/download/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
   integrity sha1-UcLBmhhe1Rh6qpotCLZm0NZGdiI=
 
 redux@^4.0.5:

@@ -4,14 +4,17 @@ import store from '../../store';
 import { add } from './store/actionCreators';
 
 class MoneyCounter extends Component {
-	state = store.getState();
+	state = store.getState()
 	handleClick = () => {
 		store.dispatch(add());
-	};
+	}
 	componentDidMount() {
-		store.subscribe(() => {
+		this.unsubscribe = store.subscribe(() => {
 			this.setState(store.getState());
 		});
+	}
+	componentWillUnmount() {
+		this.unsubscribe(this.unsubscribe);
 	}
 	render() {
 		const { moneyNum } = this.state;

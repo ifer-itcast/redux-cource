@@ -8,6 +8,11 @@ class MoneyCounter extends Component {
 	handleClick = () => {
 		store.dispatch(add());
 	};
+	componentDidMount() {
+		store.subscribe(() => {
+			this.setState(store.getState());
+		});
+	}
 	render() {
 		const { moneyNum } = this.state;
 		return (

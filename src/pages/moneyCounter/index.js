@@ -1,19 +1,10 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import store from '../../store';
+import { connect } from 'react-redux';
 import * as actionCreators from './store/actionCreators';
-const { add, sub, addAsync } = bindActionCreators(actionCreators, store.dispatch);
 
 class MoneyCounter extends Component {
-	state = store.getState().moneyCouter;
-	componentDidMount() {
-		store.subscribe(() => {
-			this.setState(store.getState().moneyCouter);
-		});
-	}
 	render() {
-		const { moneyNum } = this.state;
-		console.log(store.getState());
+		const { moneyCouter: { moneyNum }, add, sub, addAsync } = this.props;
 		return (
 			<div>
 				<p>
@@ -27,4 +18,8 @@ class MoneyCounter extends Component {
 	}
 }
 
-export default MoneyCounter;
+const mapStateToProps = state => ({
+	moneyCouter: state.moneyCouter
+});
+
+export default connect(mapStateToProps, actionCreators)(MoneyCounter);

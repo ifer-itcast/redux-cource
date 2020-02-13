@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-
+import { bindActionCreators } from 'redux';
 import store from '../../store';
-import { add } from './store/actionCreators';
+import * as actionCreators from './store/actionCreators';
+const { add, sub } = bindActionCreators(actionCreators, store.dispatch);
 
 class MoneyCounter extends Component {
 	state = store.getState();
-	handleClick = () => {
-		store.dispatch(add());
-	};
 	componentDidMount() {
-		store.subscribe(() => {
+		this.unsubscribe = store.subscribe(() => {
 			this.setState(store.getState());
 		});
+	}
+	componentWillUnmount() {
+		store.unsubscribe(this.unsubscribe);
 	}
 	render() {
 		const { moneyNum } = this.state;
@@ -20,7 +21,8 @@ class MoneyCounter extends Component {
 				<p>
 					{moneyNum}
 				</p>
-				<button onClick={this.handleClick}>add</button>
+				<button onClick={add}>add</button>
+				<button onClick={sub}>sub</button>
 			</div>
 		);
 	}

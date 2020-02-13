@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import store from '../../store';
 import * as actionCreators from './store/actionCreators';
-const { add, sub } = bindActionCreators(actionCreators, store.dispatch);
+const { add, sub, addAsync } = bindActionCreators(actionCreators, store.dispatch);
 
 class MoneyCounter extends Component {
 	state = store.getState().moneyCouter;
@@ -21,6 +21,7 @@ class MoneyCounter extends Component {
 				</p>
 				<button onClick={add}>add</button>
 				<button onClick={sub}>sub</button>
+				<button onClick={addAsync}>addAsync</button>
 			</div>
 		);
 	}

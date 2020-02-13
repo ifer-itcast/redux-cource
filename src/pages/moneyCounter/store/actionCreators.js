@@ -7,3 +7,11 @@ export const add = () => ({
 export const sub = () => ({
 	type: actionTypes.MONEYCOUNTER_SUB
 });
+
+export const addAsync = () => {
+	return dispatch => {
+		setTimeout(() => {
+			dispatch(add());
+		}, 1000);
+	};
+};

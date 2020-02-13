@@ -1,2 +1,2 @@
-export const ADD = 'add';
-export const SUB = 'sub';
+export const MONEYCOUNTER_ADD = 'moneyCounterAdd';
+export const MONEYCOUNTER_SUB = 'moneyCounterSub';

@@ -1,9 +1,9 @@
 import * as actionTypes from './actionTypes';
 
 export const add = () => ({
-	type: actionTypes.MONEYCOUNTER_ADD
+	type: actionTypes.AGECOUNTER_ADD
 });
 
 export const sub = () => ({
-	type: actionTypes.MONEYCOUNTER_SUB
+	type: actionTypes.AGECOUNTER_SUB
 });

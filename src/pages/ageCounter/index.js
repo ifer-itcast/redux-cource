@@ -4,20 +4,19 @@ import store from '../../store';
 import * as actionCreators from './store/actionCreators';
 const { add, sub } = bindActionCreators(actionCreators, store.dispatch);
 
-class MoneyCounter extends Component {
-	state = store.getState().moneyCouter;
+class AgeCounter extends Component {
+	state = store.getState().ageCounter;
 	componentDidMount() {
 		store.subscribe(() => {
-			this.setState(store.getState().moneyCouter);
+			this.setState(store.getState().ageCounter);
 		});
 	}
 	render() {
-		const { moneyNum } = this.state;
-		console.log(store.getState());
+		const { ageNum } = this.state;
 		return (
 			<div>
 				<p>
-					{moneyNum}
+					{ageNum}
 				</p>
 				<button onClick={add}>add</button>
 				<button onClick={sub}>sub</button>
@@ -26,4 +25,4 @@ class MoneyCounter extends Component {
 	}
 }
 
-export default MoneyCounter;
+export default AgeCounter;
